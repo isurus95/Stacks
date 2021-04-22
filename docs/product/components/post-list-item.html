@@ -1,0 +1,504 @@
+---
+layout: page
+title: Post list item
+description: Post list items summarize various content and associated meta data into a highly configurable component.
+---
+<section class="stacks-section">
+    {% header "h2", "Classes" %}
+    <div class="overflow-x-auto mb32">
+        <table class="wmn4 s-table s-table__bx-simple">
+            <thead>
+                <tr>
+                    <th class="s-table--cell4" scope="col">Class</th>
+                    <th class="s-table--cell3" scope="col">Parent</th>
+                    <th scope="col">Description</th>
+                </tr>
+            </thead>
+            <tbody class="fs-caption">
+                {% for item in post-list-item.classes %}
+                    <tr>
+                        <th scope="row"><code class="stacks-code">{{ item.class }}</code></th>
+                        <td><code class="stacks-code">{{ item.applies }}</td>
+                        <td class="p8">{{ item.description }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</section>
+<section class="stacks-section">
+    {% header "h2", "Examples" %}
+    <p class="stacks-copy">Post list items are a flexible component capable of previewing various content types—questions (with or without answers) or articles. Post list items are meant to be flexible, with most of its individual pieces being optional. Let's start with a full example of a few questions and an article interleaved.</p>
+
+    {% header "h3", "Full" %}
+    <p class="stacks-copy">At their most complete, list items can contain:</p>
+    <ul class="stacks-list">
+        <li>Title</li>
+        <li>Excerpt</li>
+        <li>Tags & other categorization</li>
+        <li>Author & creation date</li>
+        <li>Stats & various states</li>
+        <li>Contextual menu</li>
+        <li>Activity indicator</li>
+    </ul>
+    <div class="stacks-preview">
+{% highlight html %}
+<div class="s-post-list-item">
+    <div class="s-post-list-item--stats">
+        <div class="s-post-list-item--stats-item s-activity-indicator"></div>
+        <div class="s-post-list-item--stats-item has-answers has-accepted-answer">
+            {% icon "CheckmarkSm", "va-text-bottom" %}
+            … answers
+        </div>
+        <div class="s-post-list-item--stats-item">
+            … votes
+        </div>
+        <div class="s-post-list-item--stats-item is-supernova">
+            {% icon "FireSm", "va-text-bottom mrn2" %}
+            … views
+        </div>
+    </div>
+    <div class="s-post-list-item--content">
+        <a href="…" class="s-post-list--content-title s-link">…</a>
+        <p class="s-post-list--content-excerpt">…</p>
+        <div class="s-post-list--meta">
+            <a class="s-tag" href="…">…</a>
+
+            <div class="s-user-card s-user-card__minimal">
+                <a href="…" class="s-avatar s-user-card--avatar">
+                    <img class="s-avatar--image" src="…" />
+                </a>
+                <a href="…" class="s-user-card--link">…</a>
+                <ul class="s-user-card--awards">
+                    <li class="s-user-card--rep">…</li>
+                </ul>
+                <time class="s-user-card--time">…</time>
+            </div>
+        </div>
+        <a href="…" class="s-btn s-btn__muted s-post-list--content-button">
+            {% icon "EllipsisVertical" %}
+        </a>
+    </div>
+</div>
+{% endhighlight %}
+        <div class="stacks-preview--example p0">
+            <div class="s-post-list-item">
+                <div class="s-post-list-item--stats">
+                    <div class="s-post-list-item--stats-item s-activity-indicator"></div>
+                    <div class="s-post-list-item--stats-item has-answers has-accepted-answer">
+                        {% icon "CheckmarkSm", "va-text-bottom" %}
+                        5 answers
+                    </div>
+                    <div class="s-post-list-item--stats-item">
+                        95 votes
+                    </div>
+                    <div class="s-post-list-item--stats-item is-supernova">
+                        {% icon "FireSm", "va-text-bottom mrn2" %}
+                        104k views
+                    </div>
+                </div>
+                <div class="s-post-list-item--content">
+                    <a href="#" class="s-post-list--content-title s-link">
+                        How to generate the JPA entity Metamodel?
+                    </a>
+                    <p class="s-post-list--content-excerpt">
+                        In the spirit of type safety associated with the CriteriaQuery JPA 2.0 also has an API to support Metamodel representation of entities.
+                    </p>
+                    <div class="s-post-list--meta">
+                        <a class="s-tag" href="#">java</a>
+                        <a class="s-tag" href="#">hibernate</a>
+                        <a class="s-tag" href="#">jpa</a>
+                        <a class="s-tag" href="#">annotation-processing</a>
+                        <a class="s-tag" href="#">metamodel</a>
+
+                        <div class="s-user-card s-user-card__minimal">
+                            <a href="#" class="s-avatar s-user-card--avatar">
+                                <img class="s-avatar--image" src="{{ "/assets/img/placeholder.svg" | relative_url }}" />
+                            </a>
+                            <a href="#" class="s-user-card--link">Paul Wright</a>
+                            <ul class="s-user-card--awards">
+                                <li class="s-user-card--rep">1350</li>
+                            </ul>
+                            <time class="s-user-card--time">asked about 2 minutes ago</time>
+                        </div>
+                    </div>
+                    <a href="#" class="s-btn s-btn__muted s-post-list--content-button">
+                        {% icon "EllipsisVertical" %}
+                    </a>
+                </div>
+            </div>
+
+            <div class="s-post-list-item">
+                <div class="s-post-list-item--stats">
+                    <div class="s-post-list-item--stats-item has-answers">
+                        4 answers
+                    </div>
+                    <div class="s-post-list-item--stats-item">
+                        280 votes
+                    </div>
+                    <div class="s-post-list-item--stats-item is-warm">
+                        10.2k views
+                    </div>
+                </div>
+                <div class="s-post-list-item--content">
+                    <a class="s-post-list--content-title s-link">
+                        Cannot read property 'startsWith' of null in npm install
+                    </a>
+                    <p class="s-post-list--content-excerpt">
+                        I am creating my first react-native app. I am attempting to install the react-native command line interface as shown here. I keep getting an error when I type the command to initiate the react-native command line
+                    </p>
+                    <div class="s-post-list--meta">
+                        <a class="s-tag" href="#">node-js</a>
+                        <a class="s-tag" href="#">angular</a>
+                        <a class="s-tag" href="#">npm</a>
+                        <a class="s-tag" href="#">javascript</a>
+
+                        <div class="s-user-card s-user-card__minimal">
+                            <a href="#" class="s-avatar s-user-card--avatar">
+                                <img class="s-avatar--image" src="{{ "/assets/img/placeholder.svg" | relative_url }}" />
+                            </a>
+                            <a href="#" class="s-user-card--link">Aaron Shekey</a>
+                            <ul class="s-user-card--awards">
+                                <li class="s-user-card--rep">205</li>
+                            </ul>
+                            <time class="s-user-card--time">asked about 3 minutes ago</time>
+                        </div>
+                    </div>
+                    <a href="#" class="s-btn s-btn__muted s-post-list--content-button">
+                        {% icon "EllipsisVertical" %}
+                    </a>
+                </div>
+            </div>
+
+            <div class="s-post-list-item">
+                <div class="s-post-list-item--stats">
+                    <div class="s-post-list-item--stats-item">
+                        1 vote
+                    </div>
+                    <div class="s-post-list-item--stats-item">
+                        15 views
+                    </div>
+                    <div class="s-post-list-item--stats-item">
+                        1 minute read
+                    </div>
+                    <div class="s-post-list-item--stats-item">
+                        1 comment
+                    </div>
+                </div>
+                <div class="s-post-list-item--content">
+                    <a href="#" class="s-post-list--content-type">
+                        {% icon "DocumentAlt" %} How-to guide
+                    </a>
+                    <a href="#" class="s-post-list--content-title s-link">
+                        How to run a product research study
+                    </a>
+                    <p class="s-post-list--content-excerpt">
+                        This article aims to guide you through the steps and processes you may want to consider when running research at Stack Overflow. While there are obviously many methods, this guide will focus more interview-style research. For a full list of Product Research templates, guides, and links, see this article.
+                    </p>
+                    <div class="s-post-list--meta">
+                        <a class="s-tag" href="#">ux-research</a>
+
+                        <div class="s-user-card s-user-card__minimal">
+                            <a href="#" class="s-avatar s-user-card--avatar">
+                                <img class="s-avatar--image" src="{{ "/assets/img/placeholder.svg" | relative_url }}" />
+                            </a>
+                            <a href="#" class="s-user-card--link">Mithila Fox</a>
+                            <ul class="s-user-card--awards">
+                                <li class="s-user-card--rep">323</li>
+                            </ul>
+                            <time class="s-user-card--time">created 15 days ago</time>
+                        </div>
+                    </div>
+                    <a href="#" class="s-btn s-btn__muted s-post-list--content-button">
+                        {% icon "EllipsisVertical" %}
+                    </a>
+                </div>
+            </div>
+
+            <div class="s-post-list-item">
+                <div class="s-post-list-item--stats">
+                    <div class="s-post-list-item--stats-item has-answers">
+                        1 answer
+                    </div>
+                    <div class="s-post-list-item--stats-item">
+                        1 vote
+                    </div>
+                    <div class="s-post-list-item--stats-item">
+                        7 views
+                    </div>
+                </div>
+                <div class="s-post-list-item--content">
+                    <a href="#" class="s-post-list--content-title s-link">
+                        {% icon "Shield", "fc-light" %}
+                        EF core 3.1 - common table for entity and owned type
+                    </a>
+                    <p class="s-post-list--content-excerpt">
+                        I’m trying to implement DDD approach in my project but realized that I have too big aggregates and trying to minimize the amount of data loaded from the database. I have an aggregate Order which
+                    </p>
+                    <div class="s-post-list--meta">
+                        <a class="s-tag" href="#">c#</a>
+                        <a class="s-tag" href="#">asp.net</a>
+                        <a class="s-tag" href="#">entity-framework</a>
+                        <a class="s-tag" href="#">domain-driven-design</a>
+
+                        <div class="s-user-card s-user-card__minimal">
+                            <a href="#" class="s-avatar s-user-card--avatar">
+                                <img class="s-avatar--image" src="{{ "/assets/img/placeholder.svg" | relative_url }}" />
+                            </a>
+                            <a href="#" class="s-user-card--link">dantey89</a>
+                            <ul class="s-user-card--awards">
+                                <li class="s-user-card--rep">1,315</li>
+                            </ul>
+                            <time class="s-user-card--time">asked about 3 minutes ago</time>
+                        </div>
+                    </div>
+                    <a href="#" class="s-btn s-btn__muted s-post-list--content-button">
+                        {% icon "EllipsisVertical" %}
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% header "h3", "Various Flair" %}
+    <div class="stacks-preview">
+{% highlight html %}
+
+{% endhighlight %}
+        <div class="stacks-preview--example p0">
+            <div class="s-post-list-item s-post-list-item__ignored">
+                <div class="s-post-list-item--stats">
+                    <div class="s-post-list-item--stats-item has-answers has-accepted-answer">
+                        {% icon "CheckmarkSm", "va-text-bottom" %}
+                        5 answers
+                    </div>
+                    <div class="s-post-list-item--stats-item">
+                        95 votes
+                    </div>
+                    <div class="s-post-list-item--stats-item is-supernova">
+                        {% icon "FireSm", "va-text-bottom mrn2" %}
+                        104k views
+                    </div>
+                    <div class="s-post-list-item--stats-item is-ignored">
+                        {% icon "EyeOffSm", "va-text-bottom" %}
+                        Ignored
+                    </div>
+                </div>
+                <div class="s-post-list-item--content">
+                    <a class="s-post-list--content-title s-link">
+                        How to generate the JPA entity Metamodel?
+                    </a>
+                    <p class="s-post-list--content-excerpt">
+                        In the spirit of type safety associated with the CriteriaQuery JPA 2.0 also has an API to support Metamodel representation of entities.
+                    </p>
+                    <div class="s-post-list--meta">
+                        <a class="s-tag" href="#">java</a>
+                        <a class="s-tag" href="#">hibernate</a>
+                        <a class="s-tag" href="#">jpa</a>
+                        <a class="s-tag" href="#">annotation-processing</a>
+                        <a class="s-tag" href="#">metamodel</a>
+
+                        <div class="s-user-card s-user-card__minimal">
+                            <a href="…" class="s-avatar s-user-card--avatar">
+                                <img class="s-avatar--image" src="{{ "/assets/img/placeholder.svg" | relative_url }}" />
+                            </a>
+                            <a href="#" class="s-user-card--link">Paul Wright</a>
+                            <ul class="s-user-card--awards">
+                                <li class="s-user-card--rep">1350</li>
+                            </ul>
+                            <time class="s-user-card--time">asked about 2 minutes ago</time>
+                        </div>
+                    </div>
+                    <a href="#" class="s-btn s-btn__muted s-post-list--content-button">
+                        {% icon "EllipsisVertical" %}
+                    </a>
+                </div>
+            </div>
+
+            <div class="s-post-list-item">
+                <div class="s-post-list-item--stats">
+                    <div class="s-post-list-item--stats-item has-answers">
+                        4 answers
+                    </div>
+                    <div class="s-post-list-item--stats-item">
+                        280 votes
+                    </div>
+                    <div class="s-post-list-item--stats-item is-warm">
+                        10.2k views
+                    </div>
+                    <div class="s-post-list-item--stats-item is-watched">
+                        {% icon "EyeOffSm", "va-text-bottom" %}
+                        Watched
+                    </div>
+                </div>
+                <div class="s-post-list-item--content">
+                    <a class="s-post-list--content-title s-link">
+                        Cannot read property 'startsWith' of null in npm install
+                    </a>
+                    <p class="s-post-list--content-excerpt">
+                        I am creating my first react-native app. I am attempting to install the react-native command line interface as shown here. I keep getting an error when I type the command to initiate the react-native command line
+                    </p>
+                    <div class="s-post-list--meta">
+                        <a class="s-tag" href="#">node-js</a>
+                        <a class="s-tag" href="#">angular</a>
+                        <a class="s-tag" href="#">npm</a>
+                        <a class="s-tag" href="#">javascript</a>
+
+                        <div class="s-user-card s-user-card__minimal">
+                            <a href="…" class="s-avatar s-user-card--avatar">
+                                <img class="s-avatar--image" src="{{ "/assets/img/placeholder.svg" | relative_url }}" />
+                            </a>
+                            <a href="#" class="s-user-card--link">Aaron Shekey</a>
+                            <ul class="s-user-card--awards">
+                                <li class="s-user-card--rep">205</li>
+                            </ul>
+                            <time class="s-user-card--time">asked about 3 minutes ago</time>
+                        </div>
+                    </div>
+                    <a href="#" class="s-btn s-btn__muted s-post-list--content-button">
+                        {% icon "EllipsisVertical" %}
+                    </a>
+                </div>
+            </div>
+
+            <div class="s-post-list-item">
+                <div class="s-post-list-item--stats">
+                    <div class="s-post-list-item--stats-item has-answers">
+                        1 answer
+                    </div>
+                    <div class="s-post-list-item--stats-item">
+                        1 vote
+                    </div>
+                    <div class="s-post-list-item--stats-item">
+                        7 views
+                    </div>
+                    <div class="s-post-list-item--stats-item has-bounty">
+                        +50 Bounty
+                    </div>
+                </div>
+                <div class="s-post-list-item--content">
+                    <a class="s-post-list--content-title s-link">
+                        {% icon "Shield", "fc-light" %}
+                        EF core 3.1 - common table for entity and owned type
+                    </a>
+                    <p class="s-post-list--content-excerpt">
+                        I’m trying to implement DDD approach in my project but realized that I have too big aggregates and trying to minimize the amount of data loaded from the database. I have an aggregate Order which
+                    </p>
+                    <div class="s-post-list--meta">
+                        <a class="s-tag" href="#">c#</a>
+                        <a class="s-tag" href="#">asp.net</a>
+                        <a class="s-tag" href="#">entity-framework</a>
+                        <a class="s-tag" href="#">domain-driven-design</a>
+
+                        <div class="s-user-card s-user-card__minimal">
+                            <a href="…" class="s-avatar s-user-card--avatar">
+                                <img class="s-avatar--image" src="{{ "/assets/img/placeholder.svg" | relative_url }}" />
+                            </a>
+                            <a href="#" class="s-user-card--link">dantey89</a>
+                            <ul class="s-user-card--awards">
+                                <li class="s-user-card--rep">1,315</li>
+                            </ul>
+                            <time class="s-user-card--time">asked about 3 minutes ago</time>
+                        </div>
+                    </div>
+                    <a href="#" class="s-btn s-btn__muted s-post-list--content-button">
+                        {% icon "EllipsisVertical" %}
+                    </a>
+                </div>
+            </div>
+
+            <div class="s-post-list-item s-post-list-item__deleted">
+                <div class="s-post-list-item--stats">
+                    <div class="s-post-list-item--stats-item has-answers">
+                        1 answer
+                    </div>
+                    <div class="s-post-list-item--stats-item">
+                        1 vote
+                    </div>
+                    <div class="s-post-list-item--stats-item">
+                        7 views
+                    </div>
+                    <div class="s-post-list-item--stats-item is-deleted">
+                        {% icon "TrashSm" "va-text-bottom" %} Deleted
+                    </div>
+                </div>
+                <div class="s-post-list-item--content">
+                    <a class="s-post-list--content-title s-link">
+                        {% icon "Shield", "fc-light" %}
+                        EF core 3.1 - common table for entity and owned type
+                    </a>
+                    <p class="s-post-list--content-excerpt">
+                        I’m trying to implement DDD approach in my project but realized that I have too big aggregates and trying to minimize the amount of data loaded from the database. I have an aggregate Order which
+                    </p>
+                    <div class="s-post-list--meta">
+                        <a class="s-tag" href="#">c#</a>
+                        <a class="s-tag" href="#">asp.net</a>
+                        <a class="s-tag" href="#">entity-framework</a>
+                        <a class="s-tag" href="#">domain-driven-design</a>
+
+                        <div class="s-user-card s-user-card__minimal">
+                            <a href="…" class="s-avatar s-user-card--avatar">
+                                <img class="s-avatar--image" src="{{ "/assets/img/placeholder.svg" | relative_url }}" />
+                            </a>
+                            <a href="#" class="s-user-card--link">dantey89</a>
+                            <ul class="s-user-card--awards">
+                                <li class="s-user-card--rep">1,315</li>
+                            </ul>
+                            <time class="s-user-card--time">asked about 3 minutes ago</time>
+                        </div>
+                    </div>
+                    <a href="#" class="s-btn s-btn__muted s-post-list--content-button">
+                        {% icon "EllipsisVertical" %}
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% header "h3", "Small" %}
+    <div class="stacks-preview">
+{% highlight html %}
+
+{% endhighlight %}
+        <div class="stacks-preview--example p0">
+            <div class="s-post-list-item s-post-list-item__sm">
+                <div class="s-post-list-item--stats">
+                    <div class="s-post-list-item--stats-item has-answers">
+                        1 answer
+                    </div>
+                    <div class="s-post-list-item--stats-item">
+                        3 votes
+                    </div>
+                    <div class="s-post-list-item--stats-item">
+                        69 views
+                    </div>
+                </div>
+                <div class="s-post-list-item--content">
+                    <a class="s-post-list--content-title s-link">
+                        TalkBack is not reading select options when expanded
+                    </a>
+                    <p class="s-post-list--content-excerpt">
+                        I am creating form page which is compatible with accessibility. I have combo-box menu and I have null value for first option where I cannot use text so I used aria-label for screen readers
+                    </p>
+                    <div class="s-post-list--meta">
+                        <a class="s-tag" href="#">html</a>
+                        <a class="s-tag" href="#">accessibility</a>
+                        <a class="s-tag" href="#">wai-aria</a>
+                        <a class="s-tag" href="#">talkback</a>
+
+                        <div class="s-user-card s-user-card__minimal">
+                            <a href="…" class="s-avatar s-user-card--avatar">
+                                <img class="s-avatar--image" src="{{ "/assets/img/placeholder.svg" | relative_url }}" />
+                            </a>
+                            <a href="#" class="s-user-card--link">Patata</a>
+                            <ul class="s-user-card--awards">
+                                <li class="s-user-card--rep">213</li>
+                            </ul>
+                            <time class="s-user-card--time">asked about 3 minutes ago</time>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
