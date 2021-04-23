@@ -22,14 +22,16 @@
     margin-bottom: 0.75em;
 }
 
-.stacks-intro {
-    background-image: url("../img/illustration-crane.svg"), url("../img/illustration-field.svg");
-    background-position: top -35% left 15%, bottom 10% right 8%;
-    background-repeat: no-repeat, no-repeat;
+.stacks-intro-crane {
+    position: absolute;
+    top: -15%;
+    left: 17%;
+}
 
-    .dark-mode({
-        background-image: url("../img/illustration-crane-dark.svg"), url("../img/illustration-field-dark.svg");
-    });
+.stacks-intro-field {
+    position: absolute;
+    bottom: 5%;
+    right: 9%;
 }
 
 .stacks-home-nav {
@@ -37,9 +39,16 @@
 }
 
 #stacks-internals #screen-md({
-    .stacks-intro {
-        background-position: top -15% left 15%, bottom 10% right 8%;
-        background-size: 135px 327px, 537px 390px;
+    .stacks-intro-crane {
+        width: 135px;
+        height: 327px;
+        top: -8%;
+        left: 12%;
+    }
+
+    .stacks-intro-field {
+        width: 537px;
+        height: 390px;
     }
 }, @force-selector: true);
 
@@ -47,9 +56,19 @@
     .stacks-home-nav {
         margin-bottom: 170px;
     }
-    .stacks-intro {
-        background-position: top 0 left 15%, bottom 20% right 8%;
-        background-size: 90px 218px, 358px 260px;
+
+    .stacks-intro-crane {
+        width: 90px;
+        height: 218px;
+
+        top: 0;
+        left: 12%;
+    }
+
+    .stacks-intro-field {
+        width: 358px;
+        height: 260px;
+        bottom: 20%;
     }
 }, @force-selector: true);
 
@@ -57,18 +76,17 @@
     html .stacks-home-nav {
         margin-bottom: 230px;
     }
-    html .stacks-intro {
-        background-position: top 0 left 15%, bottom 50% right 0;
-        background-size: 69px 166px, 272px 197px;
-    }
-}
 
-//  $$  404
-//  ----------------------------------------------------------------------------
-.stacks-404 {
-    background-image: url("../img/illustration-astronaut.svg");
-    background-position: 15% 15%;
-    background-repeat: no-repeat;
+    html .stacks-intro-crane {
+        width: 69px;
+        height: 166px;
+    }
+
+    html .stacks-intro-field {
+        width: 272px;
+        height: 197px;
+        bottom: 33%;
+    }
 }
 
 //  $$  BACKGROUNDS EXAMPLE
@@ -117,7 +135,7 @@
 //  $$  TITLES
 //  ----------------------------------------------------------------------------
 .stacks-title {
-    text-shadow: 0 0 10px var(--orange-400), 0 0 10px var(--orange-400), 0 0 10px var(--orange-400);
+    text-shadow: 0 0 10px var(--theme-primary-400), 0 0 10px var(--theme-primary-400), 0 0 10px var(--theme-primary-400);
     text-rendering: optimizeLegibility;
 }
 
@@ -363,6 +381,77 @@
             }
         }
     }
+}
+
+//  ============================================================================
+//  $   Homepage grid
+//  ----------------------------------------------------------------------------
+
+.stacks-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-column-gap: @su16;
+    grid-row-gap: @su16;
+}
+
+@media ( max-width:1200px ) {
+    .stacks-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media ( max-width:530px ) {
+    .stacks-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.stacks-theme-button {
+    color: var(--black-300);
+    position: relative;
+    padding-right: @su12 !important;
+
+    &:after {
+        content: "";
+        position: absolute;
+        z-index: @zi-active;
+        top: calc(~"50% - 2px");
+        right: 0;
+        border-style: solid;
+        border-width: @su4;
+        border-top-width: @su4;
+        border-bottom-width: 0;
+        border-color: currentColor transparent;
+        pointer-events: none;
+    }
+
+    &.is-selected {
+        color: var(--black-600);
+    }
+
+    &.stacks-theme-button__home {
+        color: var(--white);
+
+        &.is-selected {
+            color: var(--white);
+        }
+    }
+}
+
+body.theme-custom {
+    --theme-primary-color-h: 172;
+    --theme-primary-color-s: 37%;
+    --theme-primary-color-l: 48%;
+    --theme-primary-color-r: 77;
+    --theme-primary-color-g: 168;
+    --theme-primary-color-b: 156;
+
+    --theme-secondary-color-h: 259;
+    --theme-secondary-color-s: 29%;
+    --theme-secondary-color-l: 55%;
+    --theme-secondary-color-r: 129;
+    --theme-secondary-color-g: 108;
+    --theme-secondary-color-b: 174;
 }
 
 .team-avatar {

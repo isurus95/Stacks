@@ -94,7 +94,7 @@ a.s-tag {
 }
 
 //  $$  DISMISS ICON
-//      Style adjument to @Svg.ClearSm
+//      Style adjustment to @Svg.ClearSm
 //  ---------------------------------------------------------------------------
 .s-tag--dismiss {
     display: flex;
@@ -165,4 +165,15 @@ a.s-tag__moderator {
 a.s-tag__muted {
     #stacks-internals #load-config();
     .s-tag-hover-styles(@tags-muted-border-hover, @tags-muted-background-hover, @tags-muted-color-hover);
+}
+
+//  $$  Themed Tag
+//  ---------------------------------------------------------------------------
+.s-tag__themed {
+    #stacks-internals #load-config();
+    .s-tag-styles(var(--theme-primary-color), var(--theme-primary-color-fade-15), var(--theme-primary-color-darken-5));
+}
+a.s-tag__themed {
+    #stacks-internals #load-config();
+    .s-tag-hover-styles(var(--theme-primary-color-darken-5), var(--theme-primary-color-fade-35), var(--theme-primary-color-darken-10));
 }
