@@ -83,16 +83,6 @@
           "name": "Medium",
           "size": "17px",
           "class": "s-input__md"
-        },
-        {
-          "name": "Large",
-          "size": "21px",
-          "class": "s-input__lg"
-        },
-        {
-          "name": "Extra Large",
-          "size": "27px",
-          "class": "s-input__xl"
         }
       ]
     },
@@ -331,16 +321,6 @@
           "name": "Medium",
           "size": "17px",
           "class": "s-textarea__md"
-        },
-        {
-          "name": "Large",
-          "size": "21px",
-          "class": "s-textarea__lg"
-        },
-        {
-          "name": "Extra Large",
-          "size": "27px",
-          "class": "s-textarea__xl"
         }
       ]
     }
@@ -381,16 +361,6 @@
           "name": "Medium",
           "size": "17px",
           "class": "s-select__md"
-        },
-        {
-          "name": "Large",
-          "size": "21px",
-          "class": "s-select__lg"
-        },
-        {
-          "name": "Extra Large",
-          "size": "27px",
-          "class": "s-select__xl"
         }
       ]
     }

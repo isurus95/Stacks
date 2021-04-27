@@ -22,6 +22,7 @@
     position: relative;
     display: inline-block;
     padding: 0.8em;
+    height: var(--s-form-height);
     border: 1px solid transparent;
     border-radius: @br-sm;
     background-color: transparent;
@@ -104,6 +105,7 @@
     }
 
     &.s-btn__xs {
+        height: var(--s-form-height__xs);
         padding: 0.6em;
         font-size: @fs-fine;
 
@@ -121,6 +123,7 @@
     }
 
     &.s-btn__sm {
+        height: var(--s-form-height__sm);
         font-size: @fs-caption;
 
         &.s-btn__dropdown {
@@ -129,6 +132,7 @@
     }
 
     &.s-btn__md {
+        height: var(--s-form-height__md);
         padding: 0.7em;
         border-radius: @br-sm + 1;
         font-size: @fs-body3;
@@ -460,6 +464,7 @@
 .s-btn__unset:hover,
 .s-btn__unset:active {
     padding: 0;
+    height: auto;
     border: none;
     outline: none;
     font: unset;

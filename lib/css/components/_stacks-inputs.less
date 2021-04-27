@@ -79,6 +79,10 @@
     @autofill();
 }
 
+.s-input {
+    height: var(--s-form-height);
+}
+
 .s-input.s-input__search,
 .s-input.s-input__creditcard {
     padding-left: @su32;
@@ -164,6 +168,8 @@ fieldset {
 //  ----------------------------------------------------------------------------
 .s-input-fill {
     padding: @input-padding;
+    padding-top: 0;
+    padding-bottom: 0;
     border: 1px solid var(--black-200);
     border-right-width: 0;
     border-left-width: 0;
@@ -171,7 +177,8 @@ fieldset {
     color: var(--fc-medium);
     font-family: inherit;
     white-space: nowrap;
-    line-height: @lh-sm;
+    height: var(--s-form-height);
+    line-height: var(--s-form-height);
 
     &.s-input-fill__clear {
         border-color: transparent;
@@ -198,6 +205,7 @@ fieldset {
 .s-select {
     position: relative;
     color: var(--fc-dark);
+    height: var(--s-form-height);
 
     //  --  MENU ARROWS
     //      To customize the visual appearance of the select menu arrows, we
@@ -600,17 +608,11 @@ fieldset {
 .s-select__md > select {
     font-size: @fs-body3;
 }
-.s-input__lg,
-.s-textarea__lg,
-.s-label__lg,
-.s-select__lg > select {
-    font-size: @fs-title;
+.s-input__sm {
+    height: var(--s-form-height__sm);
 }
-.s-input__xl,
-.s-textarea__xl,
-.s-label__xl,
-.s-select__xl > select {
-    font-size: @fs-headline1;
+.s-input__md {
+    height: var(--s-form-height__md);
 }
 
 //  $$  PADDING ADJUSTMENTS WITHIN SIZES
