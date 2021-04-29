@@ -24,7 +24,7 @@
 //  ============================================================================
 //  $  VARIABLES & MIXINS
 //  ----------------------------------------------------------------------------
-@input-padding:     0.6em 0.7em;
+@input-padding: 0 0.8em;
 
 //  ============================================================================
 //  $  BASE INPUT / TEXTAREA STYLE
@@ -48,7 +48,7 @@
     //  ------------------------------------------------------------------------
     @supports (-webkit-overflow-scrolling: touch) {
         font-size: 16px;
-        padding: .36em .55em; // Compensate for the larger font size so we generally keep the input the same size
+        padding: 0 .55em; // Compensate for the larger font size so we generally keep the input the same size
 
         &::-webkit-input-placeholder {
             line-height: normal !important;
@@ -81,13 +81,17 @@
 
 .s-input {
     height: var(--s-form-height);
+    line-height: var(--s-form-height);
+
+    &.s-input__search,
+    &.s-input__creditcard {
+        padding-left: @su32;
+    }
 }
 
-.s-input.s-input__search,
-.s-input.s-input__creditcard {
-    padding-left: @su32;
+.s-textarea {
+    padding: 0.6em 0.8em;
 }
-
 
 //  ============================================================================
 //  $  FIELDSET
@@ -168,8 +172,6 @@ fieldset {
 //  ----------------------------------------------------------------------------
 .s-input-fill {
     padding: @input-padding;
-    padding-top: 0;
-    padding-bottom: 0;
     border: 1px solid var(--black-200);
     border-right-width: 0;
     border-left-width: 0;
